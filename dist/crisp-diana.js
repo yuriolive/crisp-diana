@@ -4,8 +4,6 @@ window.CRISP_READY_TRIGGER = function() {
 	var audio = new Howl({
 		src: ['https://client.crisp.chat/static/sounds/events/chat-message-receive.oga?be3c3d3']
 	});
-	var whats = "";
-	var email = "";
 
 	Bounceback.init(); // Exit Intent Detection
 
@@ -27,7 +25,7 @@ window.CRISP_READY_TRIGGER = function() {
 			  eventAction: 'user:phone:changed',
 			  eventLabel: 'Phone Changed'
 			});
-			$crisp.push(["set", "user:phone", message.content]);
+			$crisp.push(["set", "user:phone", message.content.replace(/\D/g,'')]);
 			askEmail();
 		} else if(localStorage.getItem("crisp_email") === "asked") {
 			localStorage.setItem("crisp_email", "received");
