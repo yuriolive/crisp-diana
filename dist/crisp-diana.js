@@ -34,6 +34,12 @@
 				$crisp.push(["do", "message:send", ["text", "Ok! Iremos tentar entrar em contato pelo Whats, caso não a gente não consiga, iremos entrar em contato por e-mail!"]]);
 			}
 		}
+		ga('send', {
+		  hitType: 'event',
+		  eventCategory: 'Crisp',
+		  eventAction: 'user:phone:changed',
+		  eventLabel: 'Phone Changed'
+		});
 	}]);
 
 	$crisp.push(["on", "user:email:changed", function () {
@@ -86,4 +92,4 @@
 
 // https://cdn.jsdelivr.net/gh/AMKohn/bounceback/dist/bounceback.min.js
 
-// https://cdn.jsdelivr.net/combine/gh/goldfire/howler.js/dist/howler.min.js,gh/AMKohn/bounceback/dist/bounceback.min.js,gh/yuriolive/crisp-diana@v0.1/dist/crisp-diana.min.js
+// https://cdn.jsdelivr.net/combine/gh/goldfire/howler.js/dist/howler.min.js,gh/AMKohn/bounceback/dist/bounceback.min.js,gh/yuriolive/crisp-diana@v0.1.1/dist/crisp-diana.min.js
