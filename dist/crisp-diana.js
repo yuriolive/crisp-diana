@@ -60,8 +60,10 @@ window.CRISP_READY_TRIGGER = function() {
 	}
 
 	function askWhats() {
-		$crisp.push(["do", "message:show", ["text", "Tudo bem, qual é o número do seu Whats com DDD?"]]);
-		localStorage.setItem("crisp_whats", "asked");
+		setTimeout(function(){
+			$crisp.push(["do", "message:show", ["text", "Tudo bem, qual é o número do seu Whats com DDD?"]]);
+			localStorage.setItem("crisp_whats", "asked");
+		}, 1500);
 	}
 
 	function askEmail() {
@@ -72,7 +74,7 @@ window.CRISP_READY_TRIGGER = function() {
 	function exitIntent() {
 		if(!$crisp.is("session:ongoing")) {
 			audio.play();
-			$crisp.push(["do", "message:show", ["text", "Psiu! Você tem certeza que quer sair antes de conversar com a gente?"]]);
+			$crisp.push(["do", "message:show", ["text", "Psiu! Você tem certeza que quer sair antes de conversar com a gente? :'("]]);
 		}
 	}
 };
