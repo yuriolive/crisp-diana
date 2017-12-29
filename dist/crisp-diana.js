@@ -26,10 +26,14 @@ window.CRISP_READY_TRIGGER = function() {
 			  eventLabel: 'Phone Changed'
 			});
 			$crisp.push(["set", "user:phone", message.content.replace(/\D/g,'')]);
+			if($crisp.is("website:available")) {
+				$crisp.push(["do", "message:show", ["text", "Ok! Iremos tentar entrar em contato pelo Whats, fica mais fácil por lá ;)"]]);
+			} else {
+				$crisp.push(["do", "message:show", ["text", "Ok! Nossos operadores estão um pouco ocupados no momento, iremos tentar entrar em contato pelo Whats assim que possível ;)"]]);
+			}
 			askEmail();
 		} else if(localStorage.getItem("crisp_email") === "asked") {
 			localStorage.setItem("crisp_email", "received");
-			$crisp.push(["do", "message:show", ["text", "Ok! Iremos tentar entrar em contato pelo Whats, caso a gente não consiga, entraremos em contato por e-mail ;)"]]);
 			$crisp.push(["set", "user:email", message.content]);
 		} else if(localStorage.getItem("crisp_whats") !== "received") {
 			askWhats();
@@ -63,11 +67,13 @@ window.CRISP_READY_TRIGGER = function() {
 		setTimeout(function(){
 			$crisp.push(["do", "message:show", ["text", "Tudo bem, qual é o número do seu Whats com DDD?"]]);
 			localStorage.setItem("crisp_whats", "asked");
-		}, 1500);
+		}, 3000);
 	}
 
 	function askEmail() {
-		$crisp.push(["do", "message:show", ["text", "E qual é o seu e-mail?"]]);
+		setTimeout(function(){
+			$crisp.push(["do", "message:show", ["text", "Caso queira, responda com o seu e-mail para receber nossas promoções e novidades!"]]);
+		}, 2500);
 		localStorage.setItem("crisp_email", "asked");
 	}
 
