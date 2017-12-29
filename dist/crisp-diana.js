@@ -1,4 +1,5 @@
-(function() {
+// This callback gets executed once $crisp is fully loaded and all methods (not only $crisp.push()) are available
+window.CRISP_READY_TRIGGER = function() {
 	var lsActive = false;
 	var audio = new Howl({
 		src: ['https://client.crisp.chat/static/sounds/events/chat-message-receive.oga?be3c3d3']
@@ -73,7 +74,7 @@
 	}
 
 	function askWhats() {
-		$crisp.push(["do", "message:send", ["field", { "id": "phone-field", "text": "Qual é o seu Whats?", "explain": "Digite aqui seu número com DDD..." }]]);
+		$crisp.push(["do", "message:send", ["field", { "id": "phone-field", "text": "Qual é o seu Whats?", "explain": "Digite aqui seu número..." }]]);
 	}
 
 	function askEmail() {
@@ -86,10 +87,10 @@
 			$crisp.push(["do", "message:show", ["text", "Psiu! Você tem certeza que quer sair antes de conversar com a gente?"]]);
 		}
 	}
-});
+};
 
 // https://cdn.jsdelivr.net/gh/goldfire/howler.js/dist/howler.min.js
 
 // https://cdn.jsdelivr.net/gh/AMKohn/bounceback/dist/bounceback.min.js
 
-// https://cdn.jsdelivr.net/combine/gh/goldfire/howler.js/dist/howler.min.js,gh/AMKohn/bounceback/dist/bounceback.min.js,gh/yuriolive/crisp-diana@v0.1.1/dist/crisp-diana.min.js
+// https://cdn.jsdelivr.net/combine/gh/goldfire/howler.js/dist/howler.min.js,gh/AMKohn/bounceback/dist/bounceback.min.js,gh/yuriolive/crisp-diana@v0.1.2/dist/crisp-diana.min.js
