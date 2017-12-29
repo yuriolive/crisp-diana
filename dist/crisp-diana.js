@@ -85,3 +85,5 @@
 // https://cdn.jsdelivr.net/gh/goldfire/howler.js/dist/howler.min.js
 
 // https://cdn.jsdelivr.net/gh/AMKohn/bounceback/dist/bounceback.min.js
+
+// https://cdn.jsdelivr.net/combine/gh/goldfire/howler.js/dist/howler.min.js,gh/AMKohn/bounceback/dist/bounceback.min.js,gh/yuriolive/crisp-diana@v0.1/dist/crisp-diana.min.js
