@@ -65,7 +65,7 @@ window.CRISP_READY_TRIGGER = function() {
 
 	function askWhats() {
 		setTimeout(function(){
-			$crisp.push(["do", "message:show", ["text", "Tudo bem, qual é o número do seu Whats com DDD?"]]);
+			$crisp.push(["do", "message:show", ["text", "Tudo bem, nós enviamos o nosso catálogo com os preços atualizados de atacado ou varejo pelo WhatsApp. Qual é o seu número com DDD?"]]);
 			localStorage.setItem("crisp_whats", "asked");
 		}, 3000);
 	}
